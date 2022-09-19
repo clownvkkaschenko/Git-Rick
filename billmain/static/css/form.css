@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+.index {
+    background: url(rick.png) no-repeat;
+    background-size: 100%;
+}
+.index2 {
+    background: url(rick2.png) no-repeat;
+    background-size: 100%;
+}
+.decor {
+    position: relative;
+    max-width: 550px;
+    margin: 100px auto 0;
+    background: rgb(0, 250, 208);
+    border-radius: 30px;
+}
+.form-left-decoration, .form-right-decoration {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    border-radius: 20px;
+}
+.form-left-decoration {
+    bottom: 60px;
+    left: -30px;
+}
+.form-right-decoration {
+    top: 60px;
+    right: -30px;
+}
+.form-left-decoration:before, .form-left-decoration:after, .form-right-decoration:before, .form-right-decoration:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 20px;
+    border-radius: 30px;
+    background: rgb(0, 250, 208);
+}
+.form-left-decoration:before {
+    top: -20px;
+}
+.form-left-decoration:after {
+    top: 20px;
+    left: 10px;
+}
+.form-right-decoration:before {
+    top: -20px;
+    right: 0;
+}
+.form-right-decoration:after {
+    top: 20px;
+    right: 10px;
+}
+.circle {
+    position: absolute;
+    bottom: 80px;
+    left: -55px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgb(0, 250, 208);
+}
+.form-inner {
+    padding: 30px 50px 5px 50px;
+}
+.form-inner input, .form-inner textarea {
+    display: block;
+    width: 100%;
+    padding: 0 20px;
+    margin-bottom: 10px;
+    background: #E9EFF6;
+    line-height: 40px;
+    border-width: 0;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.form-inner input[type="submit"] {
+    margin-top: 30px;
+    background: #00ccff;
+    border-bottom: 4px solid rgb(0, 17, 255);
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    letter-spacing: 3px;
+    font-weight: bold
+}
+.form-inner input[type="submit"]:hover{ 
+    color: rgb(251, 255, 0);
+}
+.form-inner textarea {
+    resize: none;
+}
+.form-inner h3 {
+    margin-top: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    color: #000000;
+    text-align: center;
+    user-select: none;
+}
+.index_text{
+    text-align: center;
+    color: #1b1b1b;
+    font-family: 'Roboto', sans-serif;
+    white-space: normal;
+    max-width: 1000px;
+    margin:50px auto;
+    user-select: none;
+}
+.git_tex_tindex{
+    text-align: center;
+    display: inline-block;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+}
+.git_tex_tindex:hover::after{
+    width: 100%;
+    left: 0;
+}
+.git_tex_tindex::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    display: block;
+    background: none repeat scroll 0 0 transparent;
+    height: 3px;
+    width: 0;
+    background: rgb(0, 0, 0);
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
+.rick_left {
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+    max-width: 430px;
+    position:relative;
+    bottom:-10px;
+    transform: rotate(-10deg);
+}
+.rick_right {
+    user-select: none;
+    pointer-events: none;
+    width: 100%;
+    float: right;
+    max-width: 430px;
+    margin: -200px 50px 0 0;
+    height: auto;
+    transform: rotate(10deg);
+}

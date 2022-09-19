@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block main %}
+  <body class="index2">
+    <div class="blog-card">
+      <div class="meta">
+        <div class="photo" style="background-image: url({{ rick.image }})"></div>
+      </div>
+      <div class="description">
+        <div class="blog">
+          <h1 style="font-weight: 900; font-family: cursive;">{{ rick.name }}</h1>
+          {% if rick.status == 'Unknown' %}
+            <span style="margin-top: 0.2rem; font-size: 17px; font-weight: 500;">Status unknown - {{ rick.species }}</span>
+          {% else %}
+            <span style="margin-top: 0.2rem; font-size: 17px; font-weight: 500;">{{ rick.status }} - {{ rick.species }}</span>
+          {% endif %}
+        </div><p></p>
+        <div class="blog">
+          <span style="color: rgb(158, 158, 158);">Last known location:</span>
+          <span>{{ rick.location }}</span>
+        </div>
+        <div class="blog">
+          <span style="color: rgb(158, 158, 158);">First seen in:</span>
+          <span>{{ rick.episode }}</span>
+        </div>
+      </div>
+    </div>
+    <div class="blog-card alt">
+      <div class="meta">
+        <div class="photo" style="background-image: url({{ data.info.avatar_url }})"></div>
+      </div>
+      <div class="description">
+        <div class="blog">
+          <h1 style="font-weight: 900; font-family: cursive;">{{ username }}</h1>
+          {% if data.info.name %}
+            <span style="margin-top: 0.2rem; font-size: 17px; font-weight: 500;">{{ data.info.name }} - {{ data.info.id }}</span>
+          {% else %}
+            <span style="margin-top: 0.2rem; font-size: 17px; font-weight: 500;">{{ data.info.id }}</span>
+          {% endif %}
+        </div><p></p>
+        {% if data.language %}
+          <div class="blog">
+            <span style="color: rgb(158, 158, 158);">Last used programming language:</span>
+            <span>{{ data.language }}</span>
+          </div>
+        {% else %}
+          <div class="blog">
+            <span style="color: rgb(158, 158, 158);">No programming language</span>
+            <span>But personally I recommend you Python</span>
+          </div>
+        {% endif %}
+        {% if data.repos.0 %}
+          <div class="blog">
+            <span style="color: rgb(158, 158, 158);">Newest repositories:</span>
+            <a style="text-decoration: none;" href="{{ data.url_rep.0 }}">{{ data.repos.0 }}</a>
+            {% if data.repos.1 %}
+              <a style="text-decoration: none;" href="{{ data.url_rep.1 }}">{{ data.repos.1 }}</a>
+            {% endif %}
+            {% if data.repos.2 %}
+              <a style="text-decoration: none;" href="{{ data.url_rep.2 }}">{{ data.repos.2 }}</a>
+            {% endif %}
+          </div>
+        {% else %}
+          <div class="blog">
+            <span style="color: rgb(158, 158, 158);">
+              You have zero public repositories<br>
+              Instead, I will recommend you a cool series
+            </span>
+            <span>Silicon Valley, Who Am I, Mr.Robot</span>
+          </div>
+        {% endif %}
+        <div class="blog">
+          <span style="color: rgb(158, 158, 158);">Repositories count: {{ data.info.public_repos }}</span>
+          <span style="color: rgb(158, 158, 158);">Followers: {{ data.followers }}</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </body>
+{% endblock %}

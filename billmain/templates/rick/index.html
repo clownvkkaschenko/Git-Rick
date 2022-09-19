@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block main %}
+  <body class="index">
+    <h1 class="index_text">
+      On this site you can find, out who you are from the world of Rick and Morty, by your GitHub profile
+    </h1>
+    {% if limit < 7 %}
+      <form class="decor">
+        <div class="form-left-decoration"></div>
+        <div class="form-right-decoration"></div>
+        <div class="circle"></div>
+        <div class="form-inner">
+          <br><br><br>
+          <h3 style="color: #5c5c5c;">GitHub API request limit exceeded :c</h3>
+          <br><br><br>
+        </div>
+      </form>
+    {% else %}
+      <form class="decor" method="post">
+        {% csrf_token %}
+        <div class="form-left-decoration"></div>
+        <div class="form-right-decoration"></div>
+        <div class="circle"></div>
+        <div class="form-inner">
+          <h3>Enter a link to your GitHub</h3>
+          {{ form.as_p }}
+          <input type="submit" value="Send">
+        </div>
+      </form>
+    {% endif %}
+  </body>
+{% endblock %}
