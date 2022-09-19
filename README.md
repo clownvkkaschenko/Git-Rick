@@ -1,7 +1,7 @@
 # Проект Git-Rick
 Данный сайт, с помощью вашего url профиля GitHub, получает информацю о вашем профиле и выводит её вместе с персонажем из вселенной Рика и Морти ```^-^```
-![](https://i.postimg.cc/mDfCkVN5/111.png)
 ### Пример работы
+![](https://i.postimg.cc/mDfCkVN5/111.png)
 ![](https://i.postimg.cc/tgLwT0cG/222.png)
 ### Используемые технологии:
 - [Python 3.7.9](https://www.python.org/)
