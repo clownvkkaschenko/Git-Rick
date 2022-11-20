@@ -1,19 +1,15 @@
 * {
     box-sizing: border-box;
 }
-.index {
-    background: url(rick.png) no-repeat;
-    background-size: 100%;
-}
 .index2 {
-    background: url(rick2.png) no-repeat;
+    background: url("rick.png") no-repeat;
     background-size: 100%;
 }
 .decor {
     position: relative;
     max-width: 550px;
     margin: 100px auto 0;
-    background: rgb(0, 250, 208);
+    background: rgb(0, 174, 255);
     border-radius: 30px;
 }
 .form-left-decoration, .form-right-decoration {
@@ -37,7 +33,7 @@
     width: 50px;
     height: 20px;
     border-radius: 30px;
-    background: rgb(0, 250, 208);
+    background: rgb(0, 238, 255);
 }
 .form-left-decoration:before {
     top: -20px;
@@ -61,7 +57,7 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: rgb(0, 250, 208);
+    background: rgb(0, 238, 255);
 }
 .form-inner {
     padding: 30px 50px 5px 50px;
@@ -79,15 +75,15 @@
 }
 .form-inner input[type="submit"] {
     margin-top: 30px;
-    background: #00ccff;
-    border-bottom: 4px solid rgb(0, 17, 255);
+    background: rgb(0, 238, 255);
     color: rgb(0, 0, 0);
     font-size: 14px;
     letter-spacing: 3px;
     font-weight: bold
 }
 .form-inner input[type="submit"]:hover{ 
-    color: rgb(251, 255, 0);
+    background: rgb(0, 140, 255);
+    transition: 0.3s;
 }
 .form-inner textarea {
     resize: none;
@@ -103,7 +99,7 @@
 }
 .index_text{
     text-align: center;
-    color: #1b1b1b;
+    color: #000000;
     font-family: 'Roboto', sans-serif;
     white-space: normal;
     max-width: 1000px;

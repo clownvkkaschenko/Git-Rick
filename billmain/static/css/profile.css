@@ -3,8 +3,8 @@
 }
 
 body {
-  background: #f1f1f1;
-  margin: 2rem;
+  background: url("rick.png") no-repeat;
+  background-size: 100%;
 }
 
 .blog-card {

@@ -3,8 +3,6 @@ from random import randint
 
 import requests
 
-HEAD = {'Authorization': 'token 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'}
-
 
 def rick_status():
     """Checking Rick and Morty API Status"""
@@ -15,14 +13,14 @@ def rick_status():
 def git_status(username):
     """Checking GitGub API Status"""
     url = f'https://api.github.com/users/{username}'
-    return requests.get(url, headers=HEAD).status_code
+    return requests.get(url).status_code
 
 
 def git_ratelimit():
     """Show request limit"""
     url = 'https://api.github.com'
     return int(
-        requests.get(url, headers=HEAD).headers['X-RateLimit-Remaining'])
+        requests.get(url).headers['X-RateLimit-Remaining'])
 
 
 def rick_content():
@@ -49,7 +47,7 @@ def github_content(username):
     info = {}
     contents = ['id', 'avatar_url', 'name', 'public_repos']
     url = f'https://api.github.com/users/{username}'
-    response = requests.get(url, headers=HEAD).json()
+    response = requests.get(url).json()
 
     for content in contents:
         info[content] = response.get(content)
@@ -60,22 +58,22 @@ def git_followers(username):
     """Find out the number of followers to the selected profile"""
     url = f'https://api.github.com/users/{username}/followers'
     try:  # if there are two or more pages with repositories
-        link = requests.get(url, headers=HEAD).headers['Link']
+        link = requests.get(url).headers['Link']
         shear = link.split('page=')[-1]
         last_page = int(shear.split(r'>')[0])
         followers = (last_page - 1) * 30
         url = (f'https://api.github.com/users/{username}/'
                f'followers?page={last_page}')
-        followers += len(requests.get(url, headers=HEAD).json())
+        followers += len(requests.get(url).json())
         return followers
     except KeyError:  # if only one page with repositories
-        return len(requests.get(url, headers=HEAD).json())
+        return len(requests.get(url).json())
 
 
 def git_repos(username):
     """Get the name and url of the repository"""
     url = f'https://api.github.com/users/{username}/repos?sort=pushed'
-    response = requests.get(url, headers=HEAD).json()
+    response = requests.get(url).json()
     repos = {}
     for i in range(3):
         try:
@@ -90,18 +88,9 @@ def git_repos(username):
 def latest_programming_language(username):
     """Returns the latest programming language"""
     url = f'https://api.github.com/users/{username}/repos?sort=pushed'
-    response = requests.get(url, headers=HEAD).json()
+    response = requests.get(url).json()
     cnt_repos = len(response)
     if cnt_repos == 0:
         return None
     language = response[0].get('language')
     return language
-
-
-def countdown(num_of_secs):
-    while num_of_secs:
-        m, s = divmod(num_of_secs, 60)
-        min_sec_format = '{:02d}:{:02d}'.format(m, s)
-        print(min_sec_format)
-        time.sleep(1)
-        num_of_secs -= 1
