@@ -1,4 +1,4 @@
-import time
+from datetime import datetime
 from random import randint
 
 import requests
@@ -45,12 +45,16 @@ def rick_content():
 def github_content(username):
     """Getting the required content about the selected profile"""
     info = {}
-    contents = ['id', 'avatar_url', 'name', 'public_repos']
+    contents = ['id', 'avatar_url', 'name', 'public_repos', 'created_at']
     url = f'https://api.github.com/users/{username}'
     response = requests.get(url).json()
 
     for content in contents:
-        info[content] = response.get(content)
+        if content == 'created_at':
+            info[content] = datetime.strptime(
+                response.get(content), "%Y-%m-%dT%H:%M:%SZ").date()
+        else:
+            info[content] = response.get(content)
     return info
 
 
@@ -85,12 +89,14 @@ def git_repos(username):
     return repos
 
 
-def latest_programming_language(username):
-    """Returns the latest programming language"""
+def programming_language(username):
     url = f'https://api.github.com/users/{username}/repos?sort=pushed'
     response = requests.get(url).json()
-    cnt_repos = len(response)
-    if cnt_repos == 0:
-        return None
-    language = response[0].get('language')
-    return language
+    repos = []
+    for i in range(3):
+        try:
+            language = response[i].get('language')
+        except IndexError:
+            break
+        repos.append(language)
+    return repos

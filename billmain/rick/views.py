@@ -2,7 +2,7 @@ from django.shortcuts import redirect, render
 
 from .forms import ProfileForm
 from .helpers import (git_followers, git_ratelimit, git_repos, github_content,
-                      latest_programming_language, rick_content)
+                      programming_language, rick_content)
 from .models import Profile
 
 
@@ -58,7 +58,7 @@ def profile(request):
     data = {
         "info": github_content(username),
         "followers": git_followers(username),
-        "language": latest_programming_language(username),
+        "language": programming_language(username),
         "repos": list(git_repos(username).keys()),
         "url_rep": list(git_repos(username).values()),
     }

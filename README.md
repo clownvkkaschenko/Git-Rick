@@ -1,8 +1,8 @@
 # Проект Git-Rick
 Данный сайт, с помощью вашего url профиля GitHub, получает информацю о вашем профиле и выводит её вместе с персонажем из вселенной Рика и Морти ```^-^```
 ### Пример работы
-![](https://i.postimg.cc/3JDCH5CJ/Screenshot-2022-11-20-at-19-44-35-Git-Rick.png)
-![](https://i.postimg.cc/zfDxN2Gt/Screenshot-2022-11-20-at-19-45-23-Git-Rick.png)
+![](https://i.postimg.cc/mkbM2HbZ/Screenshot-2022-11-27-at-19-28-28-Git-Rick2.png)
+![](https://i.postimg.cc/T17ydN7Q/Screenshot-2022-11-27-at-19-28-02-Git-Rick.png)
 ### Запуск проекта в dev-режиме:
 - Клонируйте репозиторий и перейдите в него
     ```
